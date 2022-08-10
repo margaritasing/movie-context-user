@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css?family=Exo:700');
+@import url('https://fonts.googleapis.com/css?family=Abel');
+
+
+
+.contenedores {
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    justify-content: center;
+
+
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+}
+
+.cartas {
+    width: 300px;
+    height: 300px;
+    border-radius: 15px;
+    background: white;
+    position: relative;
+    display: flex;
+    transition: 0.4s ease-out;
+    box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.cartas:hover {
+    transform: translateY(20px);
+}
+
+.cartas:hover:before {
+    opacity: 1;
+}
+
+.cartas:hover .info {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.cartas:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+    transition: 0.5s;
+    opacity: 0;
+
+}
+
+.cartas img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 15px;
+}
+
+.cartas .info {
+    position: relative;
+    z-index: 3;
+    color: white;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.5s;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.cartas .info h1 {
+    margin: 0px;
+
+}
+
+.cartas .info p {
+    letter-spacing: 1px;
+    font-size: 12px;
+    margin-top: 8px;
+
+}
+
+.cartas .info button {
+    padding: 0.6rem;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    background: white;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+.cartas .info button:hover {
+    background: dodgerblue;
+    color: white;
+}
+
+.info h1 {
+    text-align: center;
+}
+
+.titulo {
+    text-align: justify;
+    margin: 0 10px 0 10px;
+}
+
+@media screen and (min-width: 280px) and (max-width: 768px) {
+    .cartas {
+        width: 350px;
+        height: 400px;
+
+    }
+
+    .wrapper {
+
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+
+
+
+
+}
