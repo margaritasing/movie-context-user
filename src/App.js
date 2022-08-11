@@ -82,7 +82,12 @@ function App() {
     <Header favoritos={favoritos} />
       <div className="container">
           <Routes>
-            <Route path="/" element={ <Register />} />
+            <Route path="/" element={ 
+              <ProtectedRoute>
+                 <Register />
+              </ProtectedRoute>
+            
+            } />
             <Route exact path="/login" element={<Login />} /> 
                 
             <Route path="/listado"  element={  <Listado addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
@@ -90,16 +95,8 @@ function App() {
             <Route path="/resultados"  element={<Resultados addOrRemoveFromFavs={addOrRemoveFromFavs}  />} />
             <Route path="/favoritos"  element={<Favoritos favoritos={favoritos} addOrRemoveFromFavs={addOrRemoveFromFavs}  />} />            
             <Route path="/banderas"  element={<Banderas />} /> 
-            <Route path="/tarjetas" 
-            element={
-              <ProtectedRoute>
-                  <CardComponente/>
-              </ProtectedRoute>
-            }
-             />  
-
-               
-          </Routes>
+            <Route path="/tarjetas" element={<CardComponente/> } />
+         </Routes>
       </div>
       </AuthProvider>
       </>
