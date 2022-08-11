@@ -89,7 +89,7 @@ const Login = () => {
             </form>  
             <button
             onClick={handleGoogleSignin}
-            className="bg-slate-50 hover:bg-slate-200 text-black  shadow rounded border-2 border-gray-300 py-2 px-4 w-full"
+            className="text-white"
           >
             Google login
           </button>
