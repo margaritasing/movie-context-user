@@ -8,9 +8,9 @@ import { useAuth } from '../../context/AuthContext';
 
 const CardComponente = (props) => {
 
-  const { logout, user, loading } = useAuth();  
+  const { user, loading } = useAuth();  
  
-  let token  = sessionStorage.getItem('token');  
+ 
 
   const [movieList, setMovieList] = useState([])
 
@@ -26,13 +26,7 @@ const CardComponente = (props) => {
         } )
   }, [setMovieList]);
 
-  const handleLogout = async () => {
-    try {
-      await logout();
-    } catch (error) {
-      console.error(error.message);
-    }
-  };
+ 
 
   if (loading) {
     return <h1> Cargando</h1>
@@ -44,14 +38,8 @@ const CardComponente = (props) => {
    
   return (    
     <>
-    {!token && <Navigate replace to="/" />}
-   <h2 className='text-white text-center'>Bienvenido(a) {user.displayName || user.email}</h2>
-   <button
-   className="btn btn-warning text-dark text-center"
-   onClick={handleLogout}
- >
-   logout
- </button>
+    
+   <h2 className='text-white text-center'>Bienvenido(a) {user.displayName || user.email}</h2>   
    <div className='contenedores'>
     <div className='wrapper'> 
     {movieList?.map((oneMovie, index) => (
