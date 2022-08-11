@@ -47,7 +47,7 @@ export default function Register() {
         onSubmit={handleSubmit}
         className=""
       >
-        <div className="mb-4">
+        <div className="text-white">
           <label
             htmlFor="email"
             className="block text-gray-700 text-sm font-bold mb-2"
@@ -57,7 +57,7 @@ export default function Register() {
           <input
             type="email"
             onChange={(e) => setUser({ ...user, email: e.target.value })}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="text-white"
             placeholder="youremail@company.tld"
           />
         </div>
@@ -65,25 +65,25 @@ export default function Register() {
         <div className="mb-4">
           <label
             htmlFor="password"
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="text-white"
           >
             Password
           </label>
           <input
             type="password"
             onChange={(e) => setUser({ ...user, password: e.target.value })}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="text-white"
             placeholder="*************"
           />
         </div>
 
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        <button className="btn btn-warning">
           Register
         </button>
       </form>
-      <p className="my-4 text-sm flex justify-between px-3">
+      <p className="text-white">
         Already have an Account?
-        <Link to="/login" className="text-blue-700 hover:text-blue-900">
+        <Link to="/login" className=">text-white">
           Login
         </Link>
       </p>
