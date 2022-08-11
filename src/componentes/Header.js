@@ -1,8 +1,26 @@
 import React from 'react'
 import {Link } from 'react-router-dom';
 import Buscador from './Buscador';
+import { useAuth } from '../context/AuthContext';
+import { useEffect, useState } from 'react';
+
 
 const Header = (props) => {
+
+  const { logout, user, loading } = useAuth();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  if (loading) {
+    return <h1> Cargando</h1>
+    
+  }
   
 
   return (
@@ -25,7 +43,10 @@ const Header = (props) => {
                 {
                   props.favoritos.length > 0 && <>Favoritas: {props.favoritos.length}</>}
                 
-                </span>                              
+                </span>  
+                    <button className="btn btn-warning text-dark text-center mx-4 my-1" onClick={handleLogout} >
+                  logout
+                </button>                            
             </div>
         </div>
        <Buscador />
