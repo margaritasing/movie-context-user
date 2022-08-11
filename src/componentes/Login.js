@@ -25,11 +25,14 @@ const Login = () => {
         if (error.code === "auth/wrong-password") {
          setError("Contraseña equivocada")         
         }
-
         if (error.code === "auth/user-not-found") {
-         setError("Usuario Incorrecto")
-         
+         setError("Usuario Incorrecto")         
         }
+
+        if (error.code === "auth/invalid-email") {
+          setError("Por favor introduce un correo valido")              
+        }
+      
       }
     };
   
@@ -53,6 +56,9 @@ const Login = () => {
         setError('Te enviamos un correo electrónico. Revisa tu correo')
       } catch (error) {
         setError(error.message);
+        if(error.code === "auth/user-not-found"){
+          setError("Correo no registrado")
+        }
       }
     };
 
@@ -60,7 +66,7 @@ const Login = () => {
    
       return (
       <>      
-      {error && <h2>{error}</h2>}
+      {error && <h2 className="text-white">{error}</h2>}
       <Section className='principal'>
       
           <div className='login'>            
@@ -79,13 +85,15 @@ const Login = () => {
                   <br/>
                   <br/>
                   <button type='submit'>Ingresar</button>   
-                  <a
-                  className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-                  href="#!"
-                  onClick={handleResetPassword}
-                >
-                  Forgot Password?
-                </a>
+                 <div className="my-3">
+                      <a
+                      className="text-white my-3"
+                      href="#!"
+                      onClick={handleResetPassword}
+                    >
+                      ¿ Se te olvido la contraseña? 
+                    </a>               
+                 </div>
             </form>  
             <button
             onClick={handleGoogleSignin}
@@ -94,8 +102,8 @@ const Login = () => {
             Google login
           </button>
           <p className="text-white">
-            Don't have an account? 
-            <Link to="/register" className="text-blue-700 hover:text-blue-900">
+            No tienes cuenta?, Por favor registrate
+            <Link to="/" className="text-white mx-2">
               Register
             </Link>
           </p>            
