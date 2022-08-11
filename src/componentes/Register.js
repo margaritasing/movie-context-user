@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import swal from 'sweetalert';
 
 
 
@@ -20,7 +21,8 @@ export default function Register() {
     setError("");
     try {
       await signup(user.email, user.password);
-      navigate("/");
+      swal("Bien","Gracias por registrarte, la proxima vez, debes hacer login","success");
+      navigate("/tarjetas");
     } catch (error) {
       setError(error.message);
       if(error.code === "auth/weak-password"){
@@ -37,53 +39,38 @@ export default function Register() {
       if (error.code === "auth/email-already-in-use") {
         setError("Este email ya esta en uso")
       }
+
+      if (error.code === "auth/missing-email") {
+        setError("Debes escribir un correo valido")
+        
+      }
     }
   };
 
   return (
-    <div className="row">  
-    {error && <h2>{error}</h2>}   
-      <form
-        onSubmit={handleSubmit}
-        className=""
-      >
-        <div className="text-white">
-          <label
-            htmlFor="email"
-            className="block text-gray-700 text-sm font-bold mb-2"
-          >
-            Email
-          </label>
-          <input
-            type="email"
-            onChange={(e) => setUser({ ...user, email: e.target.value })}
-            className="text-white"
-            placeholder="youremail@company.tld"
-          />
-        </div>
-
-        <div className="mb-4">
-          <label
-            htmlFor="password"
-            className="text-white"
-          >
-            Password
-          </label>
-          <input
-            type="password"
-            onChange={(e) => setUser({ ...user, password: e.target.value })}
-            className="text-white"
-            placeholder="*************"
-          />
-        </div>
-
-        <button className="btn btn-warning">
-          Register
-        </button>
-      </form>
-      <p className="text-white">
-        Already have an Account?
-        <Link to="/login" className=">text-white">
+    <div className="row g-3 align-items-center justify-content-center my-3">  
+    {error && <h2 className="text-white">{error}</h2>}   
+                <form onSubmit={handleSubmit}>
+                <div className="mb-3 col-4">
+                  <label  htmlFor="inputPassword6" className="form-label text-white">Email</label>
+                  <input type="email" 
+                  onChange={(e) => setUser({ ...user, email: e.target.value })}
+                  className="form-control" 
+                  id="inputPassword6" 
+                  aria-describedby="emailHelp" />                
+                </div>
+                <div className="mb-3 col-4">
+                  <label  htmlFor="inputPassword6" className="form-label text-white">Password</label>
+                  <input type="password"
+                  onChange={(e) => setUser({ ...user, password: e.target.value })}
+                  className="form-control"
+                    id="inputPassword6" />
+                </div>               
+                <button type="submit" className="btn btn-primary">Registrar</button>
+              </form>
+      <p className="text-white my-3">
+        Ya tienes cuenta, entonces ve al Login
+        <Link to="/login" className="text-white mx-2">
           Login
         </Link>
       </p>
