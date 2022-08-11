@@ -21,7 +21,7 @@ const Header = (props) => {
   };
 
   if (loading) {
-    return <h1> Cargando</h1>
+    return <h1 className='text-white'> Cargando</h1>
     
   }
   
@@ -42,6 +42,8 @@ const Header = (props) => {
                           <Link to="/listado" className="nav-link" >Listado</Link>                    
                           <Link to="/favoritos" className="nav-link" >Favoritos</Link>  
                           <Link to="/banderas" className="nav-link" >Banderas</Link> 
+                          <Link to="/dog" className="nav-link" >Perritos</Link>
+                          <Link to="/rickandmorty" className="nav-link" >Rick And Morty</Link>
                           <span className='d-flex text-white align-items-center'>       
                           {
                             props.favoritos.length > 0 && <>Favoritas: {props.favoritos.length}</>}
