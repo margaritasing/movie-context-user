@@ -50,30 +50,32 @@ export default function Register() {
   return (
     <div className="row g-3 align-items-center justify-content-center my-3">  
     {error && <h2 className="text-white">{error}</h2>}   
-                <form onSubmit={handleSubmit}>
-                <div className="mb-3 col-4">
-                  <label  htmlFor="inputPassword6" className="form-label text-white">Email</label>
-                  <input type="email" 
-                  onChange={(e) => setUser({ ...user, email: e.target.value })}
-                  className="form-control" 
-                  id="inputPassword6" 
-                  aria-describedby="emailHelp" />                
-                </div>
-                <div className="mb-3 col-4">
-                  <label  htmlFor="inputPassword6" className="form-label text-white">Password</label>
-                  <input type="password"
-                  onChange={(e) => setUser({ ...user, password: e.target.value })}
-                  className="form-control"
-                    id="inputPassword6" />
-                </div>               
-                <button type="submit" className="btn btn-primary">Registrar</button>
-              </form>
-      <p className="text-white my-3">
-        Ya tienes cuenta, entonces ve al Login
-        <Link to="/login" className="text-white mx-2">
-          Login
-        </Link>
-      </p>
+          <div>
+               <form onSubmit={handleSubmit}>
+                    <div className="mb-3 col-md-4 col-sm-12">
+                              <label  htmlFor="inputPassword6" className="form-label text-white">Email</label>
+                              <input type="email" 
+                              onChange={(e) => setUser({ ...user, email: e.target.value })}
+                              className="form-control" 
+                              id="inputPassword6" 
+                              aria-describedby="emailHelp" />                
+                    </div>
+                    <div className="mb-3 col-md-4 col-sm-12">
+                              <label  htmlFor="inputPassword6" className="form-label text-white">Password</label>
+                              <input type="password"
+                              onChange={(e) => setUser({ ...user, password: e.target.value })}
+                              className="form-control"
+                                id="inputPassword6" />
+                    </div>               
+                            <button type="submit" className="btn btn-primary">Registrar</button>
+                  </form>
+                    <p className="text-white my-3">
+                        Ya tienes cuenta, entonces ve al Login
+                        <Link to="/login" className="text-white mx-2">
+                          Login
+                        </Link>
+                    </p>     
+          </div>
     </div>
   );
 }
