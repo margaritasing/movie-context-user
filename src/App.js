@@ -88,7 +88,13 @@ function App() {
               </ProtectedRoute>
             
             } />
-            <Route exact path="/login" element={<Login />} /> 
+            <Route exact path="/login" element={
+            <ProtectedRoute>
+                <Login />
+            </ProtectedRoute>
+             
+            
+            } /> 
                 
             <Route path="/listado"  element={  <Listado addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
             <Route path="/detalle"  element={<Detalle addOrRemoveFromFavs={addOrRemoveFromFavs}/>} /> 
