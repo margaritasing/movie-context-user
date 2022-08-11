@@ -14,6 +14,9 @@ import CardComponente from "./componentes/CardComponente/CardComponente";
 import Register from "./componentes/Register";
 import { AuthProvider } from "./context/AuthContext";
 import { ProtectedRoute } from "./ProtectedRoute";
+import { ProtectedRegister } from "./ProtecterRegister";
+import ApiDog from "./componentes/ApiDog";
+import RickAndMortyApi from "./componentes/RickAndMortyApi";
 
 
 
@@ -102,6 +105,17 @@ function App() {
             <Route path="/favoritos"  element={<Favoritos favoritos={favoritos} addOrRemoveFromFavs={addOrRemoveFromFavs}  />} />            
             <Route path="/banderas"  element={<Banderas />} /> 
             <Route path="/tarjetas" element={<CardComponente/> } />
+            <Route path="/dog" element={
+              <ProtectedRegister>
+                  <ApiDog/>
+              </ProtectedRegister>      
+
+            } />
+            <Route path="/rickandmorty" element={
+              <ProtectedRegister>              
+                <RickAndMortyApi /> 
+              </ProtectedRegister>
+            } />
          </Routes>
       </div>
       </AuthProvider>
