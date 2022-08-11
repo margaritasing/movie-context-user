@@ -40,8 +40,7 @@ export function AuthProvider({ children }) {
   const resetPassword = async (email) => sendPasswordResetEmail(auth, email);
 
   useEffect(() => {
-    const unsubuscribe = onAuthStateChanged(auth, (currentUser) => {   
-      console.log(currentUser)
+    const unsubuscribe = onAuthStateChanged(auth, (currentUser) => {        
       setUser(currentUser);
       setLoading(false);
     });
