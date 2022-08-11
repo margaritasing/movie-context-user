@@ -15,7 +15,7 @@ const Favoritos = (props) => {
                   props.favoritos.map( (oneMovie, index) => {
                     return(
                       
-                            <div className="col-3" key={index}>
+                            <div className="col-md-3 col-sm-12" key={index}>
                               <div className="card my-2">
                                 <img src={oneMovie.imgURL} style={{height:"300px"}} className="card-img-top" alt="..."/>
                                <button className="favorito"
