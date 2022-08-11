@@ -158,6 +158,29 @@ input{
 button:hover {
    background-color:#FFB4B4;
  }
+
+ @media screen and (min-width: 280px) and (max-width: 720px) {
+
+  .login{
+    background-color:#FFF9CA;
+    width: 100%; 
+    height: 250px;
+    padding:10px;
+    margin-top:30px;
+  
+ }
+
+ input{
+ 
+  width: 250px; 
+  height: 30px;
+  
+
+}
+
+
+
+ }
  
 `;
 
