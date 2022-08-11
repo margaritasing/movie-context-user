@@ -2,7 +2,7 @@ import React from 'react'
 import {Link, useNavigate } from 'react-router-dom';
 import Buscador from './Buscador';
 import { useAuth } from '../context/AuthContext';
-import { useEffect, useState } from 'react';
+
 
 
 const Header = (props) => {

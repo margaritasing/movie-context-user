@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link, Navigate, useLocation} from "react-router-dom";
+import { Link, useLocation} from "react-router-dom";
 import swal from 'sweetalert';
 
 
